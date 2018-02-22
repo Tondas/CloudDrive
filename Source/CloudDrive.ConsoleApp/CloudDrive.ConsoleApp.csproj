@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,17 +47,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Settings.CloudDrive.config">
+      <Link>Settings.CloudDrive.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary.Provider.AmazonS3\ClassLibrary.Provider.AmazonS3.csproj">
-      <Project>{9725246f-f711-48f1-9268-1c8bb0e6069c}</Project>
-      <Name>ClassLibrary.Provider.AmazonS3</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ClassLibrary.Provider.AzureStorage\ClassLibrary.Provider.AzureStorage.csproj">
-      <Project>{15630f6e-267a-412e-b2ae-a936977c1c29}</Project>
-      <Name>ClassLibrary.Provider.AzureStorage</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CloudDrive.Common\CloudDrive.Common.csproj">
       <Project>{4443da62-8209-43fe-a146-8ea36b2b17da}</Project>
       <Name>CloudDrive.Common</Name>
