@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary.Provider.AmazonS3\ClassLibrary.Provider.AmazonS3.csproj" />
+    <ProjectReference Include="..\ClassLibrary.Provider.AzureStorage\ClassLibrary.Provider.AzureStorage.csproj" />
+    <ProjectReference Include="..\CloudDrive.Common\CloudDrive.Common.csproj" />
+  </ItemGroup>
+
+</Project>
