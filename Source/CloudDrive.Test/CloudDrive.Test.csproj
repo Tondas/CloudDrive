@@ -38,21 +38,54 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.0.0\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="BaseUT.cs" />
+    <Compile Include="AzureBlobStorageUT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CloudDrive.Common\CloudDrive.Common.csproj">
+      <Project>{4443da62-8209-43fe-a146-8ea36b2b17da}</Project>
+      <Name>CloudDrive.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudDrive.Core\CloudDrive.Core.csproj">
+      <Project>{dc0d7ee1-e5e9-4ec8-84bd-ce5c7c797c60}</Project>
+      <Name>CloudDrive.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudDrive.Provider.AmazonS3\CloudDrive.Provider.AmazonS3.csproj">
+      <Project>{8bee7a87-19ec-42d3-9b7a-815e7c7cb7c3}</Project>
+      <Name>CloudDrive.Provider.AmazonS3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudDrive.Provider.AzureStorage\CloudDrive.Provider.AzureStorage.csproj">
+      <Project>{f0b1d99a-1db9-49e5-a0e8-03e4f57fb86f}</Project>
+      <Name>CloudDrive.Provider.AzureStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudDrive.Settings\CloudDrive.Settings.csproj">
+      <Project>{1e229547-c990-41f0-9e38-b62150be581f}</Project>
+      <Name>CloudDrive.Settings</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

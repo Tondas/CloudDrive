@@ -25,13 +25,6 @@ namespace CloudDrive.Settings.Providers
             Values = new Dictionary<string, string>();
         }
 
-        public FileSettingsSourceProvider(string fileName, string explicitFilePath = null)
-            : base()
-        {
-            FileName = fileName;
-            ExplicitFilePath = explicitFilePath;
-        }
-
         // Public Methods
 
         public void Init()

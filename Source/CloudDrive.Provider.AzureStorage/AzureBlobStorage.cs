@@ -12,7 +12,7 @@ namespace CloudDrive.Provider.AzureStorage
         #region Members + Properties
 
         public string ConnectionString { get; set; }
-        public string ContainerName => "CloudDrive";
+        public string ContainerName => Constants.ContainerName;
 
         #endregion
 
@@ -27,13 +27,13 @@ namespace CloudDrive.Provider.AzureStorage
 
         // Public Methods
 
-        public void Init(string connectionString)
+        public async Task InitAsync(string connectionString)
         {
             ConnectionString = connectionString;
+            await CreateIfNotExistsAsync(ContainerName);
         }
 
-
-        private async Task<CloudFile> Upload(byte[] fileData, string fileName)
+        public async Task<CloudFile> UploadAsync(byte[] fileData, string fileName)
         {
             var blob = GetBlob(ContainerName, fileName);
 
@@ -42,18 +42,18 @@ namespace CloudDrive.Provider.AzureStorage
             return blob.ToCloudFile(fileData);
         }
 
-        private async Task<CloudFile> Download(string fileName)
+        public async Task<CloudFile> DownloadAsync(string fileName)
         {
             var blob = GetBlob(ContainerName, fileName);
 
             if (blob != null)
             {
-                return blob.ToCloudFile();
+                return await blob.ToCloudFile();
             }
             return null;
         }
 
-        private async Task<bool> ExistsAsync(string fileName)
+        public async Task<bool> ExistsAsync(string fileName)
         {
             return await GetBlob(ContainerName, fileName).ExistsAsync();
         }
@@ -74,31 +74,46 @@ namespace CloudDrive.Provider.AzureStorage
 
         private CloudBlockBlob GetBlob(string containerName, string blobName)
         {
-            var storageAccount = CloudStorageAccount.Parse(ConnectionString);
-            var blobClient = storageAccount.CreateCloudBlobClient();
-            var container = blobClient.GetContainerReference(containerName);
+            var container = GetContainer(containerName);
             return container.GetBlockBlobReference(blobName);
         }
+
+        private CloudBlobContainer GetContainer(string containerName)
+        {
+            var storageAccount = CloudStorageAccount.Parse(ConnectionString);
+            var blobClient = storageAccount.CreateCloudBlobClient();
+            return blobClient.GetContainerReference(containerName);
+        }
+
+        private async Task<bool> CreateIfNotExistsAsync(string containerName)
+        {
+            var container = GetContainer(containerName);
+            return await container.CreateIfNotExistsAsync();
+        }   
     }
 
     public static class AzureBlobStorageExtensions
     {
-        public static CloudFile ToCloudFile(this CloudBlockBlob blob, byte[] fileData = null)
+        public static async Task<CloudFile> ToCloudFile(this CloudBlockBlob blob)
         {
-            var file = new CloudFile()
+            byte[] fileData;
+            using (var ms = new MemoryStream())
+            {
+                await blob.DownloadToStreamAsync(ms);
+                fileData = ms.ToArray();
+            }
+
+            return blob.ToCloudFile(fileData);
+        }
+
+        public static CloudFile ToCloudFile(this CloudBlockBlob blob, byte[] fileData)
+        {
+            return new CloudFile()
             {
                 Name = blob.Name,
                 Uri = blob.Uri,
                 Data = fileData
             };
-
-            //using (var ms = new MemoryStream())
-            //{
-            //    await blob.DownloadToStreamAsync(ms);
-            //    file.Data = ms.ToByteArray();
-            //}
-
-            return file;
         }
     }
 }

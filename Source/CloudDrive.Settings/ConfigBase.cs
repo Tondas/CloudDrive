@@ -15,7 +15,7 @@ namespace CloudDrive.Settings
         #region Properties
 
         private bool IsInitialized => SourceProvider.Values.Count > 0;
-        public abstract string SettingsFile { get; set; }
+        public abstract string SettingsFile { get; }
         public virtual ISettingsSourceProvider SourceProvider { get; set; }
 
         // Dynamic Object
@@ -33,15 +33,9 @@ namespace CloudDrive.Settings
             Setting = new ConfigDynamicObject(this);
         }
 
-        public ConfigBase(string settingsFile)
-        {
-            SourceProvider = new FileSettingsSourceProvider(settingsFile);
-            SettingsFile = settingsFile;
-        }
-
         // Public Methods
 
-        public string GetSetting(string key)
+        public string Get(string key)
         {
             if (!IsInitialized)
             {
@@ -57,7 +51,7 @@ namespace CloudDrive.Settings
             }
         }
 
-        public void ResetSetting()
+        public void Reset()
         {
             SourceProvider.Init();
         }
@@ -72,13 +66,13 @@ namespace CloudDrive.Settings
                 {
                     if (!IsInitialized)
                     {
-                        LoadSettings();
+                        Load();
                     }
                 }
             }
         }
 
-        private void LoadSettings()
+        private void Load()
         {
             if (SourceProvider == null)
             {
@@ -102,13 +96,13 @@ namespace CloudDrive.Settings
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            result = GetSetting(binder.Name);
+            result = Get(binder.Name);
             return result == null ? false : true;
         }
 
         public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
         {
-            result = GetSetting(binder.Name);
+            result = Get(binder.Name);
             return result == null ? false : true;
         }
 
@@ -127,13 +121,13 @@ namespace CloudDrive.Settings
 
             public override bool TryGetMember(GetMemberBinder binder, out object result)
             {
-                result = _parent.GetSetting(binder.Name);
+                result = _parent.Get(binder.Name);
                 return result == null ? false : true;
             }
 
             public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
             {
-                result = _parent.GetSetting(binder.Name);
+                result = _parent.Get(binder.Name);
                 return result == null ? false : true;
             }
         }

@@ -4,4 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\Settings.CloudDrive.config" Link="Settings.CloudDrive.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CloudDrive.Settings\CloudDrive.Settings.csproj" />
+  </ItemGroup>
+
 </Project>
