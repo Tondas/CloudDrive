@@ -1,7 +1,8 @@
 ﻿using CloudDrive.Common;
+using CloudDrive.Common.Files;
 using System.Threading.Tasks;
 
-namespace CloudDrive.Common
+namespace CloudDrive.Common.Interface
 {
     public interface IStorage
     {

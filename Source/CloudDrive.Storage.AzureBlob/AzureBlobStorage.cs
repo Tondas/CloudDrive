@@ -1,4 +1,6 @@
 ﻿using CloudDrive.Common;
+using CloudDrive.Common.Files;
+using CloudDrive.Common.Interface;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;

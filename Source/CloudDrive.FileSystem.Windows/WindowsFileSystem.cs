@@ -1,4 +1,6 @@
 ﻿using CloudDrive.Common;
+using CloudDrive.Common.Files;
+using CloudDrive.Common.Interface;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +17,7 @@ namespace CloudDrive.FileSystem.Windows
 
         #region Singleton Constructor
 
-       
+
         public WindowsFileSystem(string rootDirectory)
         {
             RootDir = rootDirectory;
@@ -25,36 +27,26 @@ namespace CloudDrive.FileSystem.Windows
 
         // Public Methods
 
-        public CloudFiles Read()
-        {
-            return ReadStructure();
-        }
-
-
-        // Private Methods
-
-        private CloudFiles ReadStructure()
+        public List<LocalFile> Read()
         {
             if (Directory.Exists(RootDir))
             {
                 throw new Exception($"Directory '{RootDir}' doesn't exists!");
             }
 
-            var result = new CloudFiles();
-
-            // Read tree structure
-            result.Files = ReadStructureRecursive(RootDir);
-
-            return result;
+            return ReadStructureRecursive(RootDir);
         }
+
+
+        // Private Methods
 
         /// <summary>
         /// Standard 'Tail' recursive functions
         /// </summary>
         /// <param name="dir">Current directory</param>
-        private List<CloudFile> ReadStructureRecursive(string dir)
+        private List<LocalFile> ReadStructureRecursive(string dir)
         {
-            List<CloudFile> files = new List<CloudFile>(); 
+            var files = new List<LocalFile>();
 
             // Read and process directory files
             var filePaths = Directory.GetFiles(dir);
@@ -62,10 +54,20 @@ namespace CloudDrive.FileSystem.Windows
             {
                 foreach (var filePath in filePaths)
                 {
-                    var file = new CloudFile();
+                    var file = new LocalFile();
                     file.Name = Path.GetFileName(filePath);
+                    file.NameWithoutExtension = Path.GetFileNameWithoutExtension(filePath);
+                    if (Path.HasExtension(filePath))
+                    {
+                        file.Extension = Path.GetExtension(filePath);
+                    }
                     file.Directory = dir;
-                    file.LocalPath = filePath;
+                    file.Path = filePath;
+
+                    // Times
+                    file.CreationTimeUtc = File.GetCreationTimeUtc(filePath);
+                    file.LastAccessTimeUtc = File.GetLastAccessTimeUtc(filePath);
+                    file.WriteTimeUtc = File.GetLastWriteTimeUtc(filePath);
 
                     files.Add(file);
                 }
