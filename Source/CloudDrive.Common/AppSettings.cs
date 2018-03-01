@@ -26,5 +26,7 @@ namespace CloudDrive.Common
 
         public bool RunAtStartUp => bool.Parse(Get(nameof(RunAtStartUp)));
 
+        public string RootDirectory => Get(nameof(RootDirectory));
+
     }
 }

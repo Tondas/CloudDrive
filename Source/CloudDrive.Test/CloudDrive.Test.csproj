@@ -74,13 +74,13 @@
       <Project>{dc0d7ee1-e5e9-4ec8-84bd-ce5c7c797c60}</Project>
       <Name>CloudDrive.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CloudDrive.Provider.AmazonS3\CloudDrive.Provider.AmazonS3.csproj">
+    <ProjectReference Include="..\CloudDrive.Storage.AmazonS3\CloudDrive.Storage.AmazonS3.csproj">
       <Project>{8bee7a87-19ec-42d3-9b7a-815e7c7cb7c3}</Project>
-      <Name>CloudDrive.Provider.AmazonS3</Name>
+      <Name>CloudDrive.Storage.AmazonS3</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CloudDrive.Provider.AzureStorage\CloudDrive.Provider.AzureStorage.csproj">
+    <ProjectReference Include="..\CloudDrive.Storage.AzureBlob\CloudDrive.Storage.AzureBlob.csproj">
       <Project>{f0b1d99a-1db9-49e5-a0e8-03e4f57fb86f}</Project>
-      <Name>CloudDrive.Provider.AzureStorage</Name>
+      <Name>CloudDrive.Storage.AzureBlob</Name>
     </ProjectReference>
     <ProjectReference Include="..\CloudDrive.Settings\CloudDrive.Settings.csproj">
       <Project>{1e229547-c990-41f0-9e38-b62150be581f}</Project>

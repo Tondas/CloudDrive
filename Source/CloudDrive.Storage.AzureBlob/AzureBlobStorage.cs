@@ -5,9 +5,9 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace CloudDrive.Provider.AzureStorage
+namespace CloudDrive.Storage.AzureBlob
 {
-    public class AzureBlobStorage
+    public class AzureBlobStorage : IStorage
     {
         #region Members + Properties
 
@@ -58,16 +58,17 @@ namespace CloudDrive.Provider.AzureStorage
             return await GetBlob(ContainerName, fileName).ExistsAsync();
         }
 
-        public async Task DeleteAsync(string fileName)
+        public async Task<bool> DeleteAsync(string fileName)
         {
             var blob = GetBlob(ContainerName, fileName);
 
             if (blob != null)
             {
                 await blob.DeleteAsync();
+                return true;
             }
 
-            return;
+            return false;
         }
 
         // Private Methods

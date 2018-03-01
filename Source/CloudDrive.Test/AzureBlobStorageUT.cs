@@ -1,5 +1,5 @@
 ﻿using CloudDrive.Common;
-using CloudDrive.Provider.AzureStorage;
+using CloudDrive.Storage.AzureBlob;
 using CloudDrive.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;

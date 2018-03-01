@@ -3,10 +3,10 @@
     public class Constants
     {
         public const string ContainerName = "clouddrive";
-        public const string BackUpFolderName = "CloudDriveBackup";
+        public const string BackupContainerName = "clouddrivebackup";
+
         public const string FiddenFolder = ".CloudDrive";
         public const string DatabaseFile = "CloudDrive\\.db";
-        public const string IgnoreFile = ".ignore";
-
+        public const string IgnoreFile = ".clouddriveignore";
     }
 }

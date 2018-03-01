@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CloudDrive.Provider.AmazonS3
+namespace CloudDrive.Storage.AmazonS3
 {
     public class Class1
     {

@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>CloudDrive.Storage.AzureBlob</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
