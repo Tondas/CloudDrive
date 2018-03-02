@@ -8,7 +8,9 @@ namespace CloudDrive.Common.Files
         public string NameWithoutExtension { get; set; }
         public string Extension { get; set; }
 
+
         public string Directory { get; set; }
+        public string DirectoryPath { get; set; }
         public string Path { get; set; }
 
         public byte[] Data { get; set; }
