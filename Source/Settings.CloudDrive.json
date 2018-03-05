@@ -1,0 +1,6 @@
+﻿{
+    "AmazonS3ConnectionString": "",
+    "AzureBlobConnectionString": "",
+    "RunAtStartUp": "true",
+    "RootDirectory": "C:\\Temp\\Sync"
+}

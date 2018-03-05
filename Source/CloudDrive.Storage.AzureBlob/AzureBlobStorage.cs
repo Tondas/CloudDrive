@@ -18,14 +18,12 @@ namespace CloudDrive.Storage.AzureBlob
 
         #endregion
 
-        #region Singleton Constructor
+        public AzureBlobStorage() { }
 
-        private static readonly Lazy<AzureBlobStorage> _instance = new Lazy<AzureBlobStorage>(() => new AzureBlobStorage(), true);
-        public static AzureBlobStorage Instance { get { return _instance.Value; } }
-
-        protected AzureBlobStorage() { }
-
-        #endregion
+        public AzureBlobStorage(string connectionString)
+        {
+            ConnectionString = connectionString;
+        }
 
         // Public Methods
 
@@ -92,7 +90,7 @@ namespace CloudDrive.Storage.AzureBlob
         {
             var container = GetContainer(containerName);
             return await container.CreateIfNotExistsAsync();
-        }   
+        }
     }
 
     public static class AzureBlobStorageExtensions

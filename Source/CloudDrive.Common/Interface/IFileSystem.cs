@@ -7,6 +7,9 @@ namespace CloudDrive.Common.Interface
 {
     public interface IFileSystem
     {
+        void Init(string rootDirectory);
+
+
         LocalFile Read(LocalFile file);
 
         List<LocalFile> ReadRecursive();

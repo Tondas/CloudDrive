@@ -15,12 +15,19 @@ namespace CloudDrive.FileSystem.Windows
 
         #endregion
 
+        public WindowsFileSystem() { }
+
         public WindowsFileSystem(string rootDirectory)
         {
             RootDir = rootDirectory;
         }
 
         // Public Methods
+
+        public void Init(string rootDirectory)
+        {
+            RootDir = rootDirectory;
+        }
 
         public LocalFile Read(LocalFile file)
         {
@@ -104,7 +111,7 @@ namespace CloudDrive.FileSystem.Windows
             }
             file.Path = filePath;
             file.DirectoryPath = Path.GetDirectoryName(filePath);
-            file.Directory = Path.GetFileName(file.DirectoryPath);         
+            file.Directory = Path.GetFileName(file.DirectoryPath);
 
             // Times
             file.CreationTimeUtc = File.GetCreationTimeUtc(filePath);

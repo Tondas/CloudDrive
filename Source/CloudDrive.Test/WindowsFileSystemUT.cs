@@ -1,11 +1,6 @@
 ﻿using CloudDrive.Common;
-using CloudDrive.Storage.AzureBlob;
-using CloudDrive.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
-using System.Threading.Tasks;
 using CloudDrive.FileSystem.Windows;
-using System;
 
 namespace CloudDrive.Test
 {

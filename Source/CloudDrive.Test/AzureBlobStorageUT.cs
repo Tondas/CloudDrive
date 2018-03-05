@@ -1,6 +1,5 @@
 ﻿using CloudDrive.Common;
 using CloudDrive.Storage.AzureBlob;
-using CloudDrive.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using System.Threading.Tasks;
@@ -10,10 +9,12 @@ namespace CloudDrive.Test
     [TestClass]
     public class AzureBlobStorageUT : BaseUT
     {
+        private AzureBlobStorage storage { get; set; }
+
         [TestInitialize]
-        public async Task Init()
+        public void Init()
         {
-            await AzureBlobStorage.Instance.InitAsync(AppSettings.Instance.AzureBlobConnectionString);
+            storage = new AzureBlobStorage(AppSettings.Instance.AzureBlobConnectionString);
         }
 
         // 
@@ -35,7 +36,7 @@ namespace CloudDrive.Test
                 {
                     var fileName = Path.GetFileName(file);
                     var fileData = File.ReadAllBytes(file);
-                    await AzureBlobStorage.Instance.UploadAsync(fileData, fileName);
+                    await storage.UploadAsync(fileData, fileName);
                 }
 
                 Assert.IsTrue(true);

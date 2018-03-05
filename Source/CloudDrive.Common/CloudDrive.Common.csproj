@@ -5,13 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Settings.CloudDrive.config" Link="Settings.CloudDrive.config">
+    <Content Include="..\Settings.CloudDrive.json" Link="Settings.CloudDrive.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CloudDrive.Settings\CloudDrive.Settings.csproj" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
   </ItemGroup>
 
 </Project>

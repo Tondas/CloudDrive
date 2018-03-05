@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CloudDrive.Common.Interface;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +7,15 @@ namespace CloudDrive.Core
 {
     public class Engine
     {
-        public Engine()
+        #region Fields + Properties
+        private IFileSystem FileSystem { get; set; }
+        private IStorage Storage { get; set; }
+
+        #endregion
+
+        // Ctor
+
+        public Engine(IFileSystem fileSystem, IStorage storage)
         {
 
         }
