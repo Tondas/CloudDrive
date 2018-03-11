@@ -15,6 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudDrive.Common", "CloudD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{D0406A19-EFC2-4AB2-82E6-5E4C202A095E}"
 	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
 		Settings.CloudDrive.json = Settings.CloudDrive.json
 	EndProjectSection
 EndProject
@@ -34,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudDrive.FileSystem.IOS",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{32FE6E04-2E01-4EAA-AEF3-799E4257281A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudDrive.ElectronApp", "CloudDrive.ElectronApp\CloudDrive.ElectronApp.csproj", "{7283A16D-E86B-409E-AE89-935DF8145F17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudDrive.ElectronApp", "CloudDrive.ElectronApp\CloudDrive.ElectronApp.csproj", "{7283A16D-E86B-409E-AE89-935DF8145F17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
