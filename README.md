@@ -12,6 +12,10 @@ Here you can choice from folowing replication strategies: LRS, ZRS, GRS and RA-G
 Everything is explained on [Azure storage pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/).
 
 #### General Purpose v2
-General Purpose v2 provides access to the latest Azure storage features, including Cool and Archive storage, with pricing optimized for the **lowest GB storage prices**. These accounts provide access to Block Blobs, Page Blobs, Files, and Queues.
-Here you can choice from COOL or HOT mode where price per GB can be ~ from **0.001€** to **0.020€** so 100GB will cost ~ from 0.1€ to 2€. Also there you need to add price for read & write operatons.
+General Purpose v2 provides access to the latest Azure storage features, including Cool and Archive storage, with pricing optimized for the **lowest GB storage prices**. These accounts provide access to Block Blobs, Page Blobs, Files, and Queues.<br/>
+Here you can choice from COOL or HOT mode where price per GB can be ~ from **0.001€** to **0.020€** so 100GB will cost ~ from 0.1€ to 2€. Also there you need to add price for read & write operatons.<br/>
 Everything is explained on [Azure storage pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/).
+
+### Amazon S3  
+TODO<br/>
+[Amazon S3 pricing page](https://aws.amazon.com/s3/pricing/)
