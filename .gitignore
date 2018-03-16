@@ -166,3 +166,5 @@ Source/.vs/CloudDrive/v15/Server/sqlite3/storage.ide
 Source/.vs/CloudDrive/v15/Server/sqlite3/storage.ide-shm
 Source/.vs/CloudDrive/v15/Server/sqlite3/storage.ide-wal
 Source/.vs/CloudDrive/v15/Server/sqlite3/db.lock
+
+Settings.CloudDrive.json
