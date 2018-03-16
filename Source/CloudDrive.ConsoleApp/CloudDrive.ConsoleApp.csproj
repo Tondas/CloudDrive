@@ -32,6 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.1.0\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -48,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudDrive.Common\CloudDrive.Common.csproj">
@@ -57,6 +67,14 @@
     <ProjectReference Include="..\CloudDrive.Core\CloudDrive.Core.csproj">
       <Project>{dc0d7ee1-e5e9-4ec8-84bd-ce5c7c797c60}</Project>
       <Name>CloudDrive.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudDrive.FileSystem.Windows\CloudDrive.FileSystem.Windows.csproj">
+      <Project>{C6AA4E08-532A-44C9-AE65-94377F82D88B}</Project>
+      <Name>CloudDrive.FileSystem.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudDrive.Storage.AzureBlob\CloudDrive.Storage.AzureBlob.csproj">
+      <Project>{F0B1D99A-1DB9-49E5-A0E8-03E4F57FB86F}</Project>
+      <Name>CloudDrive.Storage.AzureBlob</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

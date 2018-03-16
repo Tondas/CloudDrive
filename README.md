@@ -25,3 +25,9 @@ Details about pricing are described on [Azure storage pricing page](https://azur
 ### Amazon S3  
 TODO<br/>
 [Amazon S3 pricing page](https://aws.amazon.com/s3/pricing/)
+
+
+### Google Cloud Storage
+TODO<br/>
+[oogle Cloud Storage pricing page](https://cloud.google.com/storage/)
+

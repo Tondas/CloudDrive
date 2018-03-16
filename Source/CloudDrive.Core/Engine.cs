@@ -1,7 +1,9 @@
-﻿using CloudDrive.Common.Interface;
+﻿using CloudDrive.Common;
+using CloudDrive.Common.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CloudDrive.Core
 {
@@ -17,25 +19,59 @@ namespace CloudDrive.Core
 
         public Engine(IFileSystem fileSystem, IStorage storage)
         {
-
+            FileSystem = fileSystem;
+            Storage = storage;
         }
 
         // Public Methods
 
-        public void Run()
+        public async Task Run()
         {
+            // Init file system + storage container
+            FileSystem.Init();
+            await Storage.InitAsync();
+
             // Init state of engine
+            // TODO
 
             // Scan all changes in drive folder
+            await Sync();
+            
+            //var cloudFiles = await Storage.ReadRecursive();
+            // TODO: compare
 
-            // Attache file changes events
+            // Attach file changes events
+            // TODO
         }
 
         // Private Methods
 
-        private void ReadLocalDrive()
-        {
+        
 
+        private async Task Sync()
+        {
+            // Load local files
+            var localFiles = FileSystem.ReadRecursive();
+
+            foreach (var localFile in localFiles)
+            {
+                var exist = await Storage.ExistsAsync(localFile.StoragePath);
+                if (exist)
+                {
+                    // Download information about file from cloud
+                    var cloudFile = await Storage.GetAttributesAsync(localFile.StoragePath);
+
+                    // TODO: replace local or storage copy
+                    FileSystem.Read(localFile);
+                    cloudFile = await Storage.UploadAsync(localFile.Data, cloudFile.Name);                  
+                }
+                // Upload
+                else
+                {
+                    FileSystem.Read(localFile);
+                    var cloudFile = await Storage.UploadAsync(localFile.Data, localFile.StoragePath);
+                }
+            }
         }
     }
 }

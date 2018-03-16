@@ -7,8 +7,7 @@ namespace CloudDrive.Common.Interface
 {
     public interface IFileSystem
     {
-        void Init(string rootDirectory);
-
+        void Init();
 
         LocalFile Read(LocalFile file);
 

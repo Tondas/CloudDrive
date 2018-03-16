@@ -1,6 +1,6 @@
 ﻿{
     "AmazonS3ConnectionString": "",
-    "AzureBlobConnectionString": "",
+    "AzureBlobConnectionString": "DefaultEndpointsProtocol=https;AccountName=turingionclouddrive;AccountKey=FVxLZDnc8zNu7pnPBSfTBYcWk3XXEN18Xm2fm/SuXP37/ecbW+5Lz6O3eL1Df6adRHopm+Ha+ZAULMVVTGvGiQ==;EndpointSuffix=core.windows.net",
     "RunAtStartUp": "true",
     "RootDirectory": "C:\\Temp\\Sync"
 }

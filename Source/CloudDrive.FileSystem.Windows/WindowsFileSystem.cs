@@ -24,9 +24,12 @@ namespace CloudDrive.FileSystem.Windows
 
         // Public Methods
 
-        public void Init(string rootDirectory)
+        public void Init()
         {
-            RootDir = rootDirectory;
+            if (!Directory.Exists(RootDir))
+            {
+                throw new Exception($"Directory '{RootDir}' doesn't exists!");
+            }
         }
 
         public LocalFile Read(LocalFile file)
@@ -36,12 +39,7 @@ namespace CloudDrive.FileSystem.Windows
         }
 
         public List<LocalFile> ReadRecursive()
-        {
-            if (!Directory.Exists(RootDir))
-            {
-                throw new Exception($"Directory '{RootDir}' doesn't exists!");
-            }
-
+        {         
             return ReadStructureRecursive(RootDir);
         }
 
