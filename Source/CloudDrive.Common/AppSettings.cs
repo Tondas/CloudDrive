@@ -29,6 +29,8 @@ namespace CloudDrive.Common
 
         public string RootDirectory { get; set; }
 
+        public string RootDirectoryInternal => RootDirectory.EndsWith("\\") ? RootDirectory : RootDirectory + "\\";
+
         // Public Methods
 
         public static AppSetting Init()
