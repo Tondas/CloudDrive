@@ -1,23 +1,27 @@
-﻿using CloudDrive.Common;
-using CloudDrive.Common.Files;
-using CloudDrive.Common.Interface;
+﻿using CloudDrive.Domain.Interface;
+using CloudDrive.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace CloudDrive.FileSystem.Windows
 {
-    public class WindowsFileSystem : IFileSystem
+    public class WindowsFileSystemClient : IFileSystem
     {
         #region Members + Properties
 
         private string RootDir { get; set; }
 
-        #endregion
+        #endregion Members + Properties
 
-        public WindowsFileSystem() { }
+        // Ctors
 
-        public WindowsFileSystem(string rootDirectory)
+        public WindowsFileSystemClient()
+        {
+            RootDir = "\\";
+        }
+
+        public WindowsFileSystemClient(string rootDirectory) : this()
         {
             RootDir = rootDirectory;
         }
@@ -39,7 +43,7 @@ namespace CloudDrive.FileSystem.Windows
         }
 
         public List<LocalFile> ReadRecursive()
-        {         
+        {
             return ReadStructureRecursive(RootDir);
         }
 
@@ -93,30 +97,6 @@ namespace CloudDrive.FileSystem.Windows
                 }
             }
             return files;
-        }
-    }
-
-    public static class WindowsFileSystemExtension
-    {
-        public static LocalFile ToLocalFile(this string filePath)
-        {
-            var file = new LocalFile();
-            file.Name = Path.GetFileName(filePath);
-            file.NameWithoutExtension = Path.GetFileNameWithoutExtension(filePath);
-            if (Path.HasExtension(filePath))
-            {
-                file.Extension = Path.GetExtension(filePath);
-            }
-            file.Path = filePath;
-            file.DirectoryPath = Path.GetDirectoryName(filePath);
-            file.Directory = Path.GetFileName(file.DirectoryPath);
-
-            // Times
-            file.CreationTimeUtc = File.GetCreationTimeUtc(filePath);
-            file.LastAccessTimeUtc = File.GetLastAccessTimeUtc(filePath);
-            file.WriteTimeUtc = File.GetLastWriteTimeUtc(filePath);
-
-            return file;
         }
     }
 }

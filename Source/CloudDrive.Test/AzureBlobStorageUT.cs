@@ -9,15 +9,15 @@ namespace CloudDrive.Test
     [TestClass]
     public class AzureBlobStorageUT : BaseUT
     {
-        private AzureBlobStorage storage { get; set; }
+        private AzureBlobStorageClient storage { get; set; }
 
         [TestInitialize]
         public void Init()
         {
-            storage = new AzureBlobStorage(AppSettings.Instance.AzureBlobConnectionString);
+            storage = new AzureBlobStorageClient(AppSettings.Instance.AzureBlobConnectionString);
         }
 
-        // 
+        //
 
         [TestMethod]
         public async Task RootContainerCreationTest()
@@ -46,7 +46,5 @@ namespace CloudDrive.Test
                 Assert.Fail();
             }
         }
-
-
     }
 }

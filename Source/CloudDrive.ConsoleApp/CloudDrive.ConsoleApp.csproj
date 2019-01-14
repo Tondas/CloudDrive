@@ -32,14 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.3.0.1\lib\net452\Microsoft.Azure.KeyVault.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsAzure.Storage.9.1.0\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.3\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -61,12 +61,16 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudDrive.Common\CloudDrive.Common.csproj">
-      <Project>{4443da62-8209-43fe-a146-8ea36b2b17da}</Project>
+      <Project>{97e5cb99-0959-46e3-9bef-051d9722fa2f}</Project>
       <Name>CloudDrive.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\CloudDrive.Core\CloudDrive.Core.csproj">
       <Project>{dc0d7ee1-e5e9-4ec8-84bd-ce5c7c797c60}</Project>
       <Name>CloudDrive.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudDrive.Domain\CloudDrive.Domain.csproj">
+      <Project>{4443da62-8209-43fe-a146-8ea36b2b17da}</Project>
+      <Name>CloudDrive.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\CloudDrive.FileSystem.Windows\CloudDrive.FileSystem.Windows.csproj">
       <Project>{C6AA4E08-532A-44C9-AE65-94377F82D88B}</Project>

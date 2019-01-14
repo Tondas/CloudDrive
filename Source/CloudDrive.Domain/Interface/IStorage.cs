@@ -1,14 +1,11 @@
-﻿using CloudDrive.Common;
-using CloudDrive.Common.Files;
-using System.Collections.Generic;
+﻿using CloudDrive.Domain.Model;
 using System.Threading.Tasks;
 
-namespace CloudDrive.Common.Interface
+namespace CloudDrive.Domain.Interface
 {
     public interface IStorage
     {
         Task InitAsync();
-
 
         //Task<List<CloudFile>> ReadRecursive();
 
@@ -18,10 +15,8 @@ namespace CloudDrive.Common.Interface
 
         Task<CloudFile> GetAttributesAsync(string fileName);
 
-
         Task<bool> ExistsAsync(string fileName);
 
         Task<bool> DeleteAsync(string fileName);
-       
     }
 }

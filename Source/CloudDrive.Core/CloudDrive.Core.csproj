@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CloudDrive.Common\CloudDrive.Common.csproj" />
+    <ProjectReference Include="..\CloudDrive.Domain\CloudDrive.Domain.csproj" />
   </ItemGroup>
 
 </Project>

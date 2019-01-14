@@ -1,4 +1,4 @@
-﻿namespace CloudDrive.Common
+﻿namespace CloudDrive.Domain
 {
     public class Constants
     {

@@ -1,29 +1,35 @@
-﻿using CloudDrive.Common;
-using CloudDrive.Common.Files;
-using CloudDrive.Common.Interface;
+﻿using CloudDrive.Domain;
+using CloudDrive.Domain.Interface;
+using CloudDrive.Domain.Model;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
 namespace CloudDrive.Storage.AzureBlob
 {
-    public class AzureBlobStorage : IStorage
+    public class AzureBlobStorageClient : IStorage
     {
         #region Members + Properties
 
         public string ConnectionString { get; set; }
-        public string ContainerName => Constants.ContainerName;
+        public string ContainerName { get; set; }
 
-        #endregion
+        #endregion Members + Properties
 
-        public AzureBlobStorage() { }
+        // Ctors
 
-        public AzureBlobStorage(string connectionString)
+        public AzureBlobStorageClient()
+        {
+            ContainerName = Constants.ContainerName;
+        }
+
+        public AzureBlobStorageClient(string connectionString, string containerName = null)
+            : this()
         {
             ConnectionString = connectionString;
+            ContainerName = !string.IsNullOrEmpty(containerName) ? containerName : Constants.ContainerName;
         }
 
         // Public Methods
@@ -133,21 +139,6 @@ namespace CloudDrive.Storage.AzureBlob
         {
             var container = GetContainer(containerName);
             return await container.CreateIfNotExistsAsync();
-        }
-    }
-
-    public static class AzureBlobStorageExtensions
-    {
-        public static CloudFile ToCloudFile(this CloudBlockBlob blob, byte[] fileData)
-        {
-            return new CloudFile()
-            {
-                Name = blob.Name,
-                Uri = blob.Uri,
-                Data = fileData,
-                ContentMD5 = blob.Properties.ContentMD5,
-                ModifiedOn = blob.Properties.LastModified?.DateTime
-            };
         }
     }
 }

@@ -1,9 +1,7 @@
-﻿using CloudDrive.Common;
-using CloudDrive.Common.Files;
+﻿using CloudDrive.Domain.Model;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace CloudDrive.Common.Interface
+namespace CloudDrive.Domain.Interface
 {
     public interface IFileSystem
     {
@@ -18,6 +16,5 @@ namespace CloudDrive.Common.Interface
         void Save(LocalFile file);
 
         void Delete(LocalFile file);
-
     }
 }

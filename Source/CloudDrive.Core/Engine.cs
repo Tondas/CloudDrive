@@ -1,8 +1,4 @@
-﻿using CloudDrive.Common;
-using CloudDrive.Common.Interface;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CloudDrive.Domain.Interface;
 using System.Threading.Tasks;
 
 namespace CloudDrive.Core
@@ -10,10 +6,11 @@ namespace CloudDrive.Core
     public class Engine
     {
         #region Fields + Properties
+
         private IFileSystem FileSystem { get; set; }
         private IStorage Storage { get; set; }
 
-        #endregion
+        #endregion Fields + Properties
 
         // Ctor
 
@@ -36,7 +33,7 @@ namespace CloudDrive.Core
 
             // Scan all changes in drive folder
             await Sync();
-            
+
             //var cloudFiles = await Storage.ReadRecursive();
             // TODO: compare
 
@@ -45,8 +42,6 @@ namespace CloudDrive.Core
         }
 
         // Private Methods
-
-        
 
         private async Task Sync()
         {
@@ -63,7 +58,7 @@ namespace CloudDrive.Core
 
                     // TODO: replace local or storage copy
                     FileSystem.Read(localFile);
-                    cloudFile = await Storage.UploadAsync(localFile.Data, cloudFile.Name);                  
+                    cloudFile = await Storage.UploadAsync(localFile.Data, cloudFile.Name);
                 }
                 // Upload
                 else

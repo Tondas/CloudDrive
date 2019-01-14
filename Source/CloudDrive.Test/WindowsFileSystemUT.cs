@@ -1,21 +1,21 @@
 ﻿using CloudDrive.Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CloudDrive.FileSystem.Windows;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CloudDrive.Test
 {
     [TestClass]
     public class WindowsFileSystemUT : BaseUT
     {
-        private WindowsFileSystem fs { get; set; }
+        private WindowsFileSystemClient fs { get; set; }
 
         [TestInitialize]
         public void Init()
         {
-            fs = new WindowsFileSystem(AppSettings.Instance.RootDirectory);
+            fs = new WindowsFileSystemClient(AppSettings.Instance.RootDirectory);
         }
 
-        // 
+        //
 
         [TestMethod]
         public void ReadRecursive()

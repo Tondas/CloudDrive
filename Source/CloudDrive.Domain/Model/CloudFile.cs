@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace CloudDrive.Common.Files
+namespace CloudDrive.Domain.Model
 {
     public class CloudFile
     {
