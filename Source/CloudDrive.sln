@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28902.138
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudDrive.Core", "CloudDrive.Core\CloudDrive.Core.csproj", "{DC0D7EE1-E5E9-4EC8-84BD-CE5C7C797C60}"
 EndProject
@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudDrive.ElectronApp", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudDrive.Storage.GoogleCloudStorage", "CloudDrive.Storage.GoogleCloudStorage\CloudDrive.Storage.GoogleCloudStorage.csproj", "{2108984A-3070-4BB2-A756-BCD37BACC360}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudDrive.Common", "CloudDrive.Common\CloudDrive.Common.csproj", "{97E5CB99-0959-46E3-9BEF-051D9722FA2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudDrive.Common", "CloudDrive.Common\CloudDrive.Common.csproj", "{97E5CB99-0959-46E3-9BEF-051D9722FA2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudDrive.ElectronClient", "CloudDrive.ElectronClient\CloudDrive.ElectronClient.csproj", "{1E381DF5-BA7A-44D9-A6F6-DD26CB7E49C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,10 @@ Global
 		{97E5CB99-0959-46E3-9BEF-051D9722FA2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E5CB99-0959-46E3-9BEF-051D9722FA2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E5CB99-0959-46E3-9BEF-051D9722FA2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E381DF5-BA7A-44D9-A6F6-DD26CB7E49C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E381DF5-BA7A-44D9-A6F6-DD26CB7E49C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E381DF5-BA7A-44D9-A6F6-DD26CB7E49C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E381DF5-BA7A-44D9-A6F6-DD26CB7E49C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +115,7 @@ Global
 		{7283A16D-E86B-409E-AE89-935DF8145F17} = {32FE6E04-2E01-4EAA-AEF3-799E4257281A}
 		{2108984A-3070-4BB2-A756-BCD37BACC360} = {B18C6164-7BBE-45F1-B2C5-58EA77AAA75A}
 		{97E5CB99-0959-46E3-9BEF-051D9722FA2F} = {1C5F4763-A93A-48F8-B164-8E9E912E0BED}
+		{1E381DF5-BA7A-44D9-A6F6-DD26CB7E49C9} = {32FE6E04-2E01-4EAA-AEF3-799E4257281A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11FAA2A7-7B84-455D-B0A3-2E048C71B487}
