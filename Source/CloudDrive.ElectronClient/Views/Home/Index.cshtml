@@ -2,7 +2,36 @@
     ViewData["Title"] = "Home Page";
 }
 
+@*<span id="nodeVersion"></span>
+<span id="chromeVersion"></span>
+<span id="electronVersion"></span>
+
+<script>
+    document.getElementById('nodeVersion').textContent = process.version.node;
+    document.getElementById('chromeVersion').textContent = process.version.chrome;
+    document.getElementById('electronVersion').textContent = process.version.electron;
+</script>*@
+
+<script type="text/javascript">
+    (function () {
+        const { ipcRenderer } = require("electron");
+
+        document.getElementById("cpuBtn").addEventListener("click", () => {
+            ipcRenderer.send("getCpuActivity", 'my possible args');
+        });
+
+        ipcRnderer.on('cpuActivityReply', (event, arg) => {
+            document.getElementById('cpuHeader').innerHTML = arg + "%";
+        });
+    }());
+</script>
+
 <div class="text-center">
     <h1 class="display-4">Welcome to the Cloud Drive</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<h2 id="cpuHeader">Show CPU activity</h2>
+
+<button id="cpuBtn">Show CPU</button>
+
+
